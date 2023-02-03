@@ -1,7 +1,14 @@
+import { EmployeeViews } from "./EmployeeViews"
+import { CustomerViews } from "./CustomerViews"
+
 export const ApplicationViews = () => {
-	return <>
-		<h1 className="title--main">NFC+</h1>
-		<div>Notes For Code & More</div>
-	</>
+	const localNfcUser = localStorage.getItem("nfc_user")
+	const nfcUserObject = JSON.parse(localNfcUser)
+
+	if (nfcUserObject.staff) {
+		return <EmployeeViews />
+	} else {
+		return <CustomerViews />
+	}
 }
 
