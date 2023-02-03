@@ -5,14 +5,11 @@ import { useNavigate, useParams } from "react-router-dom"
 export const EditNote = () => {
 
     const [topics, setTopics] = useState([])
-    const [note, update] = useState({
+    const [notes, update] = useState({
         noteTitle: "",
         topicId: 0,
         body: "",
     })
-
-    const localNfcUser = localStorage.getItem("nfc_user")
-    const nfcUserObject = JSON.parse(localNfcUser)
 
     const navigate = useNavigate()
     const { noteId } = useParams()
@@ -38,12 +35,12 @@ export const EditNote = () => {
         event.preventDefault()
 
 
-        return fetch(`http://localhost:8088/notes/${note.id}`, {
+        return fetch(`http://localhost:8088/notes/${notes.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(note)
+            body: JSON.stringify(notes)
         })
             .then(res => res.json())
             .then(() => {
@@ -54,7 +51,7 @@ export const EditNote = () => {
 
     return (
         <form className="noteForm">
-            <h2 className="noteForm__title">New Note</h2>
+            <h2 className="noteForm__title">Edit Note</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Title:</label>
@@ -63,10 +60,10 @@ export const EditNote = () => {
                         type="text"
                         className="form-control"
                         placeholder="Note Name"
-                        value={note.noteTitle}
+                        value={notes.noteTitle}
                         onChange={
                             (e) => {
-                                const copy = { ...note }
+                                const copy = { ...notes }
                                 copy.noteTitle = e.target.value
                                 update(copy)
                             }
@@ -82,10 +79,10 @@ export const EditNote = () => {
                                 <input
                                     type="radio"
                                     value={topic.id}
-                                    checked={note.topicId === topic.id}
+                                    checked={notes.topicId === topic.id}
                                     onChange={
                                         (e) => {
-                                            const copy = { ...note }
+                                            const copy = { ...notes }
                                             copy.topicId = parseInt(e.target.value)
                                             update(copy)
                                         }
@@ -105,10 +102,10 @@ export const EditNote = () => {
                         type="text"
                         className="form-control"
                         placeholder="Note Body"
-                        value={note.body}
+                        value={notes.body}
                         onChange={
                             (e) => {
-                                const copy = { ...note }
+                                const copy = { ...notes }
                                 copy.body = e.target.value
                                 update(copy)
                             }
