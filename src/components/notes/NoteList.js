@@ -6,7 +6,6 @@ export const NoteList = () => {
     const [filteredNotes, setFilteredNotes] = useState([])
     const [deleting, isDeleting] = useState(false)
 
-    const navigate = useNavigate()
     const localNfcUser = localStorage.getItem("nfc_user")
     const nfcUserObject = JSON.parse(localNfcUser)
 
