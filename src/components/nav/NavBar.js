@@ -1,25 +1,15 @@
-import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
+import { EmployeeNav } from "./EmployeeNav"
+import { CustomerNav } from "./CustomerNav"
 
 export const NavBar = () => {
-    const navigate = useNavigate()
+    const localNfcUser = localStorage.getItem("nfc_user")
+    const nfcUserObject = JSON.parse(localNfcUser)
 
-    return (
-        <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/">NFC+</Link>
-            </li>
-            {
-                localStorage.getItem("nfc_user")
-                    ? <li className="navbar__item navbar__logout">
-                        <Link className="navbar__link" to="" onClick={() => {
-                            localStorage.removeItem("nfc_user")
-                            navigate("/", { replace: true })
-                        }}>Logout</Link>
-                    </li>
-                    : ""
-            }
-        </ul>
-    )
+    if (nfcUserObject.staff) {
+        return <EmployeeNav />
+    } else {
+        return <CustomerNav />
+    }
 }
 
