@@ -6,8 +6,11 @@ import { BrowserRouter } from "react-router-dom"
 const container = document.getElementById("root")
 const root = createRoot(container)
 root.render(
-    <BrowserRouter>
-        <NFC />
-    </BrowserRouter>
+
+    <div>
+        <BrowserRouter>
+            <NFC />
+        </BrowserRouter>
+    </div>
 )
 

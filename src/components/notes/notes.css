@@ -1,12 +1,11 @@
 .notes {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .note {
-    background-color: rgb(212, 181, 141);
-    border: 1px dotted red;
+    border: 1px solid rgb(235, 103, 9);
     padding: 0.7rem;
     margin: 0.5rem;
-
+    color: rgb(235, 103, 9);
 }

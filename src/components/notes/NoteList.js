@@ -5,6 +5,7 @@ export const NoteList = () => {
     const [notes, setNotes] = useState([])
     const [filteredNotes, setFilteredNotes] = useState([])
     const [deleting, isDeleting] = useState(false)
+    const navigate = useNavigate()
 
     const localNfcUser = localStorage.getItem("nfc_user")
     const nfcUserObject = JSON.parse(localNfcUser)
@@ -48,34 +49,37 @@ export const NoteList = () => {
             return fetch(`http://localhost:8088/notes/${note}`, {
                 method: "DELETE"
             })
+                .then(() => { navigate("/") })
         } else {
             isDeleting(false)
         }
     }
 
     return <>
-        <h2>Your Notes</h2>
 
         <article className="notes">
+            <h2 className="notes--list">Your Notes</h2>
             {
                 filteredNotes.map(
                     (note) => {
-                        return <section className="note">
-                            <header>{note.topic.pointy}
+                        return <section className="note" key={note.id}>
+                            <header className="note-pointy">{note.topic.pointy}
                                 <Link to={`/${note.id}/read`}
                                     className="note-read">
                                     {note.noteTitle}
                                 </Link>
-                                <Link to={`/${note.id}/edit`}>
-                                    <button className="note-edit">
-                                        Edit
+                                <div className="note-ed-buttons">
+                                    <Link to={`/${note.id}/edit`}>
+                                        <button className="note-edit">
+                                            🅴
+                                        </button>
+                                    </Link>
+                                    <button className="note-delete"
+                                        type="submit"
+                                        onClick={(clickEvent) => deleteButton(note.id)}>
+                                        🅳
                                     </button>
-                                </Link>
-                                <button className="note-delete"
-                                    type="submit"
-                                    onClick={(clickEvent) => deleteButton(note.id)}>
-                                    Delete
-                                </button>
+                                </div>
                             </header>
                         </section>
                     }

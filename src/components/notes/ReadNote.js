@@ -20,12 +20,15 @@ export const ReadNote = () => {
     }, [noteId])
 
     return (
-        <>
-        <section className="read-note">
-            <h2 className="read-title">{read.noteTitle}</h2>
-            <p className="read-body">{read.body}</p>
-        </section>
-        </>
+        <div>
+            <section className="read-note">
+                <h2 className="read-title">{read.noteTitle}</h2>
+                <p
+                    className="read-body"
+
+                >{read.body}</p>
+            </section>
+        </div>
     )
 
 }
