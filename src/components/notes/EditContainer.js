@@ -5,7 +5,7 @@ import "./notes.css"
 export const EditContainer = () => {
     return (
         <>
-            <div className="app">
+            <div className="edit-container">
                 <NoteList />
                 <EditNote/>
             </div>

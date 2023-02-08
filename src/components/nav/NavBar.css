@@ -1,15 +1,21 @@
 .navbar {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+  flex-basis: 20%;
+  list-style-type: none;
 }
 
 .navbar__logout {
-    margin-left: auto;
+  margin-left: auto;
 }
 
+.navbar__logout {
+  font-size: 200%;
+}
+
+.navbar__home {
+  font-size: 350%;
+}

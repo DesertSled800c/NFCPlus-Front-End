@@ -4,7 +4,6 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(200, 160, 125);
 }
 
 code {
@@ -15,13 +14,12 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(241, 207, 173);
 }
 
-.dark-mode {
-  background-color: rgb(40, 39, 39);
+html {
+  background-color: rgb(22, 74, 94);
 }
 
-.dark-mode h1 {
-  color: rgb(247, 245, 219)
+.switch {
+  display: flex;
 }

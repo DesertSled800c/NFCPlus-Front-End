@@ -15,11 +15,16 @@ textarea {
 }
 
 body {
-    padding: 0 3rem;
+  margin: 0%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: fantasy;
   letter-spacing: 2px;
 }
 
@@ -27,7 +32,200 @@ p {
   margin-bottom: 1.5em;
 }
 
+#light {
+  background-color: rgb(248, 245, 231);
+  color: rgb(110, 74, 6);
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  height: 130vh;
+}
+
+#dark {
+  background-color: rgb(16, 26, 31);
+  color: rgb(246, 219, 39);
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  height: 130vh;
+}
+
 .title--main {
   margin-block-end: 0;
 }
+
+a:link {
+  text-decoration: none;
+  color: rgb(35, 125, 107);
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgb(35, 125, 107);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(235, 103, 9);
+
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.note-delete,
+.note-edit,
+.note-read,
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-ed-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dark .note-edit {
+  margin-right: 10px;
+  font-size: 100%;
+  color:rgb(213, 185, 26);
+  background-color:rgb(53, 53, 53);
+}
+
+#light .note-edit {
+  margin-right: 10px;
+  font-size: 100%;
+  color:rgb(213, 185, 26);
+  background-color:rgb(255, 250, 234);
+}
+
+#dark .note-edit:hover {
+  text-decoration: none;
+  color: rgb(152, 132, 19);
+  background-color:rgb(40, 39, 39);
+}
+
+#light .note-edit:hover {
+  text-decoration: none;
+  color: rgb(152, 132, 19);
+  background-color:rgb(211, 207, 195);
+}
+
+#light .note-delete {
+  font-size: 100%;
+  color: rgb(190, 47, 39);
+  background-color:rgb(255, 250, 234);
+}
+
+#dark .note-delete {
+  font-size: 100%;
+  color: rgb(190, 47, 39);
+  background-color:rgb(53, 53, 53);
+}
+
+#light .note-delete:hover {
+  text-decoration: none;
+  color: rgb(113, 21, 16);
+  background-color:rgb(211, 207, 195);
+}
+
+#dark .note-delete:hover {
+  text-decoration: none;
+  color: rgb(113, 21, 16);
+  background-color:rgb(40, 39, 39);
+}
+
+#dark .btn {
+  color: rgb(235, 103, 9);
+  background-color:rgb(53, 53, 53);
+}
+
+#light .btn {
+  color: rgb(235, 103, 9);
+  background-color:rgb(255, 250, 234);
+}
+
+#dark .btn:hover {
+  color: rgb(35, 125, 107);
+  background-color:rgb(40, 39, 39);
+}
+
+#light .btn:hover {
+  color: rgb(35, 125, 107);
+  background-color:rgb(211, 207, 195);
+}
+
+.noteForm__create {
+  color: rgb(235, 103, 9);
+}
+
+.noteForm__edit {
+  color:rgb(213, 185, 26);
+}
+
+.notes--list {
+  color: rgb(235, 103, 9);
+}
+
+.note-read {
+  font-size: 120%;
+}
+
+.read-title {
+  color: rgb(35, 125, 107);
+  font-size: 40px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 20vw;
+  max-height: 20vw;
+  min-width: 45vw;
+  max-width: 70vw;
+}
+
+.form-title {
+  padding: 2%;
+  min-width: none;
+  max-width: 30vw;
+}
+
+article {
+  min-width: 40vh;
+  max-width: 40vh;
+}
+
+.home-container, .edit-container, .read-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.read-note {
+  min-width: 61.5vh;
+  max-width: 70vh;
+}
+
+.read-body {
+  min-width: 45vh;
+  max-width: 45vh;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+fieldset {
+  padding: 0%;
+  margin: 0.5rem;
+}
+
 

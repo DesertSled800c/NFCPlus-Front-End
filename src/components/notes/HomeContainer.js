@@ -5,7 +5,7 @@ import "./notes.css"
 export const HomeContainer = () => {
     return (
         <>
-            <div className="app">
+            <div className="home-container">
                 <NoteList />
                 <CreateNote />
             </div>

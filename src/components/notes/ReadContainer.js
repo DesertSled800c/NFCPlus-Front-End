@@ -6,7 +6,7 @@ import "./notes.css"
 export const ReadContainer = () => {
     return (
         <>
-            <div className="app">
+            <div className="read-container">
                 <NoteList />
                 <ReadNote/>
             </div>

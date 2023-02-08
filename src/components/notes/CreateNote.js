@@ -50,15 +50,15 @@ export const CreateNote = () => {
     }
 
     return (
-        <form className="noteForm">
-            <h2 className="noteForm__title">New Note</h2>
+        <form className="noteForm create-form">
+            <h2 className="noteForm__create">New Note</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="title"></label>
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="form-title form-control"
                         placeholder="Note Name"
                         value={note.noteTitle}
                         onChange={
@@ -74,7 +74,7 @@ export const CreateNote = () => {
             <fieldset>
                 {topics.map((topic) => {
                     return (
-                        <div className="radio">
+                        <div className="radio" key={topic.id}>
                             <label htmlFor="topicId">
                                 <input
                                     type="radio"
@@ -96,8 +96,10 @@ export const CreateNote = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="body">Note:</label>
-                    <input
+                    <label htmlFor="body"></label>
+                    <textarea
+                        rows="3"
+                        cols="50"
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -110,13 +112,13 @@ export const CreateNote = () => {
                                 update(copy)
                             }
                         }
-                    />
+                    ></textarea>
                 </div>
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Save Note
+                🆂🅰🆅🅴
             </button>
         </form>
     )
