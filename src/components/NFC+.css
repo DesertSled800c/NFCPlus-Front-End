@@ -26,6 +26,7 @@ h5,
 h6 {
   font-family: fantasy;
   letter-spacing: 2px;
+  text-shadow: 1px 2px 4px rgba(11, 10, 10, 0.467);
 }
 
 p {
@@ -39,7 +40,7 @@ p {
   padding-right: 10%;
   padding-top: 2%;
   padding-bottom: 5%;
-  height: 130vh;
+  height: 150vh;
 }
 
 #dark {
@@ -49,7 +50,7 @@ p {
   padding-right: 10%;
   padding-top: 2%;
   padding-bottom: 5%;
-  height: 130vh;
+  height: 150vh;
 }
 
 .title--main {
@@ -87,20 +88,23 @@ header {
 .note-ed-buttons {
   display: flex;
   justify-content: space-between;
+  font-size: large;
 }
 
 #dark .note-edit {
   margin-right: 10px;
   font-size: 100%;
-  color:rgb(213, 185, 26);
+  color:rgb(233, 199, 8);
   background-color:rgb(53, 53, 53);
+  box-shadow: 3px 2px 2px rgb(176, 158, 44);
 }
 
 #light .note-edit {
   margin-right: 10px;
   font-size: 100%;
-  color:rgb(213, 185, 26);
+  color:rgb(173, 149, 11);
   background-color:rgb(255, 250, 234);
+  box-shadow: 3px 2px 2px rgb(176, 158, 44);
 }
 
 #dark .note-edit:hover {
@@ -111,20 +115,22 @@ header {
 
 #light .note-edit:hover {
   text-decoration: none;
-  color: rgb(152, 132, 19);
+  color: rgb(94, 81, 6);
   background-color:rgb(211, 207, 195);
 }
 
 #light .note-delete {
   font-size: 100%;
-  color: rgb(190, 47, 39);
+  color: rgb(254, 37, 25);
   background-color:rgb(255, 250, 234);
+  box-shadow: 3px 2px 2px rgb(176, 44, 44);
 }
 
 #dark .note-delete {
   font-size: 100%;
   color: rgb(190, 47, 39);
   background-color:rgb(53, 53, 53);
+  box-shadow: 3px 2px 2px rgb(176, 44, 44);
 }
 
 #light .note-delete:hover {
@@ -142,11 +148,13 @@ header {
 #dark .btn {
   color: rgb(235, 103, 9);
   background-color:rgb(53, 53, 53);
+  box-shadow: 3px 2px 2px rgb(176, 83, 44);
 }
 
 #light .btn {
   color: rgb(235, 103, 9);
   background-color:rgb(255, 250, 234);
+  box-shadow: 3px 2px 2px rgb(176, 83, 44);
 }
 
 #dark .btn:hover {
@@ -211,8 +219,8 @@ article {
 }
 
 .read-body {
-  min-width: 45vh;
-  max-width: 45vh;
+  min-width: 40vh;
+  max-width: 40vh;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -228,4 +236,10 @@ fieldset {
   margin: 0.5rem;
 }
 
+.switch-knob {
+  box-shadow: 1px 2px 4px rgba(141, 26, 26, 0.614);
+}
 
+.switch-knob:hover {
+  box-shadow: 3px 2px 4px rgba(244, 9, 9, 0.863);
+}

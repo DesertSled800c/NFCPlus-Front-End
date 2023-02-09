@@ -71,13 +71,13 @@ export const NoteList = () => {
                                 <div className="note-ed-buttons">
                                     <Link to={`/${note.id}/edit`}>
                                         <button className="note-edit">
-                                            🅴
+                                            ✎
                                         </button>
                                     </Link>
                                     <button className="note-delete"
                                         type="submit"
                                         onClick={(clickEvent) => deleteButton(note.id)}>
-                                        🅳
+                                        ⓧ
                                     </button>
                                 </div>
                             </header>

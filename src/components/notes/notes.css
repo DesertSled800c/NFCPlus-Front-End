@@ -8,4 +8,13 @@
     padding: 0.7rem;
     margin: 0.5rem;
     color: rgb(235, 103, 9);
+    box-shadow: 3px 2px 2px rgb(176, 83, 44);
+}
+
+.note:hover {
+    border: 1px solid rgb(235, 103, 9);
+    padding: 0.7rem;
+    margin: 0.5rem;
+    color: rgb(235, 103, 9);
+    box-shadow: 3px 4px 4px rgb(239, 17, 13);
 }
