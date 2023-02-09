@@ -31,7 +31,7 @@ export const NFC = () => {
 						<Authorized>
 							<>
 								<NavBar />
-								<ReactSwitch className="switch" onChange={toggleTheme} checked={theme === "dark"}/>
+								<ReactSwitch className="switch-knob" onChange={toggleTheme} checked={theme === "dark"}/>
 								<label className="switch">{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
 								<ApplicationViews />
 							</>
