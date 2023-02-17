@@ -21,24 +21,14 @@ import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 
-import {OnChangePlugin} from '@lexical/react/LexicalOnChangePlugin';
-import {$getRoot, $getSelection} from 'lexical';
-
-
-const onChange = (editorState) => {
-    editorState.read(() => {
-      // Read the contents of the EditorState here.
-      const root = $getRoot();
-      const selection = $getSelection();
-  
-      console.log(root, selection);
-    });
-  }
-
+import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
+import { createEditor, $getRoot, $getSelection } from "lexical";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some rich text...</div>;
 }
+
+const initialState = localStorage.getItem("editor_state");
 
 const editorConfig = {
   // The editor theme
@@ -59,13 +49,27 @@ const editorConfig = {
     TableCellNode,
     TableRowNode,
     AutoLinkNode,
-    LinkNode
-  ]
+    LinkNode,
+  ],
 };
 
-export default function Editor() {
+const editor = createEditor(editorConfig);
+const editorState = editor.parseEditorState(JSON.parse(initialState));
+
+export default function Editor({ handleEditNote }) {
+  const onChange = (editorState) => {
+    editorState.read(() => {
+      // Read the contents of the EditorState here.
+      const root = $getRoot();
+      const selection = $getSelection();
+
+      const serializedState = editorState.toJSON();
+
+      handleEditNote(serializedState);
+    });
+  };
   return (
-    <LexicalComposer initialConfig={editorConfig}>
+    <LexicalComposer initialConfig={{ ...editorConfig, editorState }}>
       <div className="editor-container">
         <ToolbarPlugin />
         <div className="editor-inner">
