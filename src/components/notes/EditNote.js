@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import Editor from "./Editor"
+
 
 
 export const EditNote = () => {
 
     const [topics, setTopics] = useState([])
+
     const [notes, update] = useState({
         noteTitle: "",
         topicId: 0,
-        body: "",
     })
 
     const navigate = useNavigate()
@@ -94,7 +96,10 @@ export const EditNote = () => {
                     )
                 })}
             </fieldset>
-            <fieldset>
+            <div>
+                <Editor />
+            </div>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="body"></label>
                     <textarea
@@ -114,7 +119,7 @@ export const EditNote = () => {
                         }
                     ></textarea>
                 </div>
-            </fieldset>
+            </fieldset> */}
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">

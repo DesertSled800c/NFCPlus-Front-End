@@ -1,19 +1,44 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { ChromePicker } from "react-color"
+import Editor from "./Editor"
 
+
+import "./editor.css"
+import { $getRoot, $getSelection } from "lexical"
 
 export const CreateNote = () => {
 
     const navigate = useNavigate()
     const [topics, setTopics] = useState([])
+    const [color, setColor] = useState('#237d6b')
+    const [showColorPicker, setShowColorPicker] = useState(false)
+
+    // const editorGuts = (editor.getEditorState) => {
+    //     editor.getEditorState.read(() => {
+    //       // Read the contents of the EditorState here.
+    //       const root = $getRoot();
+    //       const selection = $getSelection();
+      
+    //       console.log(root, selection);
+    //       console.log("this is the text", root.__cachedText);
+    
+    //     });
+    //   }
+
+    
+
     const [note, update] = useState({
         noteTitle: "",
         topicId: 0,
         body: "",
+        color: `${color}`,
     })
 
     const localNfcUser = localStorage.getItem("nfc_user")
     const nfcUserObject = JSON.parse(localNfcUser)
+
+
 
     useEffect(() => {
         fetch(`http://localhost:8088/topics`)
@@ -32,7 +57,7 @@ export const CreateNote = () => {
             noteTitle: note.noteTitle,
             topicId: note.topicId,
             body: note.body,
-
+            color: note.color,
         }
 
         return fetch(`http://localhost:8088/notes`, {
@@ -56,8 +81,8 @@ export const CreateNote = () => {
                 <div className="form-group">
                     <label htmlFor="title"></label>
                     <input
-                        required autoFocus
                         type="text"
+                        required autoFocus
                         className="form-title form-control"
                         placeholder="Note Name"
                         value={note.noteTitle}
@@ -94,7 +119,22 @@ export const CreateNote = () => {
                     )
                 })}
             </fieldset>
-            <fieldset>
+            <div className="pickers">
+                <button onClick={() => setShowColorPicker(showColorPicker => !showColorPicker)}>
+                    {showColorPicker ? ' Close color picker' : 'Pick a color'}
+                </button>
+                {showColorPicker && (
+                    <ChromePicker
+                        color={color}
+                        onChange={updatedColor => setColor(updatedColor.hex)}
+                    />
+                )}
+                <h2>You picked {color}</h2>
+            </div>
+            <div>
+                <Editor />
+            </div>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="body"></label>
                     <textarea
@@ -104,6 +144,7 @@ export const CreateNote = () => {
                         type="text"
                         className="form-control"
                         placeholder="Note Body"
+                        style={{ color: `${color}` }}
                         value={note.body}
                         onChange={
                             (e) => {
@@ -114,7 +155,7 @@ export const CreateNote = () => {
                         }
                     ></textarea>
                 </div>
-            </fieldset>
+            </fieldset> */}
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
