@@ -63,7 +63,7 @@ export const NoteList = () => {
                 filteredNotes.map(
                     (note) => {
                         return <section className="note" key={note.id}>
-                            <header className="note-pointy">{note.topic.pointy}
+                            <header className="note-pointy">{note?.topic?.pointy}
                                 <Link to={`/${note.id}/read`}
                                     className="note-read">
                                     {note.noteTitle}
