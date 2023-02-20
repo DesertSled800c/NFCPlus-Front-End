@@ -47,7 +47,8 @@ export const CreateNote = () => {
         })
             .then(res => res.json())
             .then(() => {
-                navigate("/")
+                window.location.reload(false)
+                // navigate("/")
             })
 
     }

@@ -36,20 +36,20 @@ p {
 #light {
   background-color: rgb(248, 245, 231);
   color: rgb(110, 74, 6);
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 2%;
-  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   height: 150vh;
 }
 
 #dark {
   background-color: rgb(16, 26, 31);
   color: rgb(246, 219, 39);
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 2%;
-  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   height: 150vh;
 }
 
@@ -192,7 +192,7 @@ header {
 
 .read-title {
   color: rgb(35, 125, 107);
-  font-size: 40px;
+  font-size: 30px;
 }
 
 textarea {
@@ -200,7 +200,7 @@ textarea {
   min-height: 20vw;
   max-height: 20vw;
   min-width: 45vw;
-  max-width: 70vw;
+  max-width: 45vw;
 }
 
 .form-title {
@@ -217,7 +217,7 @@ article {
 .home-container, .edit-container, .read-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .read-note {
@@ -225,12 +225,12 @@ article {
   max-width: 70vh;
 }
 
-.read-body {
+/* .read-body {
   min-width: 40vh;
   max-width: 40vh;
   font-size: 18px;
   line-height: 1.5;
-}
+} */
 
 .notes {
   display: flex;

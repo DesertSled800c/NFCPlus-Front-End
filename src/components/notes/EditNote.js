@@ -51,6 +51,7 @@ export const EditNote = () => {
             .then(res => res.json())
             .then(() => {
                 navigate("/")
+                window.location.reload(false)
             })
 
     }
