@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { ChromePicker } from "react-color"
 import Editor from "./Editor"
-
-
 
 export const EditNote = () => {
 
     const [topics, setTopics] = useState([])
-
-    const [notes, update] = useState({
-        noteTitle: "",
-        topicId: 0,
-    })
-
+    const [editorState, updateEditorState] = useState(null);
+    const [notes, update] = useState(null)
+    const [showColorPicker, setShowColorPicker] = useState(false)
     const navigate = useNavigate()
     const { noteId } = useParams()
+    const localNfcUser = localStorage.getItem("nfc_user")
+    const nfcUserObject = JSON.parse(localNfcUser)
 
     useEffect(() => {
         fetch(`http://localhost:8088/topics`)
@@ -35,14 +33,20 @@ export const EditNote = () => {
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-
+        const noteToSendToAPI = {
+            userId: nfcUserObject.id,
+            noteTitle: notes.noteTitle,
+            topicId: notes.topicId,
+            color: notes.color,
+            editorState,
+        }
 
         return fetch(`http://localhost:8088/notes/${notes.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(notes)
+            body: JSON.stringify(noteToSendToAPI)
         })
             .then(res => res.json())
             .then(() => {
@@ -51,14 +55,21 @@ export const EditNote = () => {
 
     }
 
+    const handleEditNote = (serializedState) => {
+        updateEditorState(serializedState);
+    };
+
+    if (notes == null) {
+        return null;
+    }
+
     return (
-        <form className="noteForm edit-form">
+        <form onSubmit={(event) => event.preventDefault()} className="noteForm create-form">
             <h2 className="noteForm__edit">Edit Note</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title"></label>
                     <input
-                        required autoFocus
                         type="text"
                         className="form-control form-title"
                         placeholder="Note Name"
@@ -96,30 +107,35 @@ export const EditNote = () => {
                     )
                 })}
             </fieldset>
-            <div>
-                <Editor />
+            <div className="pickers">
+                <button
+                    type="button"
+                    onClick={() => setShowColorPicker(showColorPicker => !showColorPicker)}>
+                    <div
+                        className="color--box"
+                        style={{ backgroundColor: notes.color }}
+                    ></div>
+                </button>
+                {showColorPicker && (
+                    <ChromePicker
+                        color={notes.color}
+                        onChange={updatedColor => update((colorUpdate) => ({
+                            ...colorUpdate,
+                            color: updatedColor.hex,
+                        }))}
+                    />
+                )}
             </div>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="body"></label>
-                    <textarea
-                        rows="3"
-                        cols="50"
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Note Body"
-                        value={notes.body}
-                        onChange={
-                            (e) => {
-                                const copy = { ...notes }
-                                copy.body = e.target.value
-                                update(copy)
-                            }
-                        }
-                    ></textarea>
+            <fieldset>
+                <div>
+                    <Editor
+                        userColor={notes.color}
+                        handleEditNote={handleEditNote}
+                        editorState={notes.editorState}
+                        editableBoolean={true}
+                    />
                 </div>
-            </fieldset> */}
+            </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">

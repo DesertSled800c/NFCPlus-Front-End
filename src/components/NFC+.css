@@ -53,6 +53,13 @@ p {
   height: 150vh;
 }
 
+.color--box {
+  width: 30px;
+  height: 15px;
+  border: 2px solid black;
+  margin: 0%;
+}
+
 .title--main {
   margin-block-end: 0;
 }
