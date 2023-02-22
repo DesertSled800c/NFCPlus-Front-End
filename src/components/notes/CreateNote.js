@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 import { ChromePicker } from "react-color"
 import Editor from "./Editor"
 import "./editor.css"
 
 export const CreateNote = () => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [topics, setTopics] = useState([])
-    const [color, setColor] = useState('#237d6b')
+    const [color, setColor] = useState('#FC07A8')
     const [showColorPicker, setShowColorPicker] = useState(false)
     const [note, update] = useState({
         noteTitle: "",
@@ -47,7 +47,8 @@ export const CreateNote = () => {
         })
             .then(res => res.json())
             .then(() => {
-                navigate("/")
+                window.location.reload(false)
+                // navigate("/")
             })
 
     }
