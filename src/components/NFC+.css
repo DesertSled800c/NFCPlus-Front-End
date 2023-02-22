@@ -34,13 +34,13 @@ p {
 }
 
 #light {
-  background-color: rgb(248, 245, 231);
+  background-color: rgb(241, 236, 225);
   color: rgb(110, 74, 6);
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 1%;
-  height: 150vh;
+  height: 160vh;
 }
 
 #dark {
@@ -50,7 +50,7 @@ p {
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 1%;
-  height: 150vh;
+  height: 160vh;
 }
 
 .color--box {
